@@ -1,0 +1,48 @@
+<% provide(:title, 'Help') %>
+
+<div style="padding:10px">
+	<div style="float:left">
+		<h2>Turno <%= @game.turn %></h2>
+		<img src="/assets/Hotel.png">
+
+	</div>
+	<div style="float:right">
+
+		<div>
+			<button id="buttonRandom">Throw die</button>
+			<text id="score">1</text>
+		</div>
+		
+		<div>
+			<h1>Current Player</h1>
+			<%= form_for(@currentPlayer, remote: true) do |f| %>
+
+				<div>
+					<%= f.label :name %>
+					<%= f.text_field :name %>
+				</div>
+				<div>
+					<%= f.label :square %>
+					<%= f.text_field :square %>
+				</div>
+				<%= f.submit "Move", #id:"nextRound", 
+				class: "btn btn-large btn-primary"%>
+			<% end %>
+		</div>
+	</div>	
+
+	<div style="clear:both">
+		<table>
+			<tr>
+				<% @game.players.each do |player| %>
+					<td>
+						<ul>
+							<li><%= player.name %></li>
+							<li><%= player.square %></li>	          
+						</ul>
+					</td>
+				<% end %>
+			</tr>
+		</table>
+	</div>
+</div>

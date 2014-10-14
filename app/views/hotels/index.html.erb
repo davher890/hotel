@@ -1,0 +1,39 @@
+<h1>Listing hotels</h1>
+
+
+<table style="overflow-x:scroll;">
+  <tr>
+    <td>
+      <div style="width:20%">
+        <ul>
+          <li>Image</li>
+          <li>Name</li>  
+          <li>Land</li>
+          <li>Entrance</li>
+          <li>Main Building</li>
+          <li>Extension 1</li>
+          <li>Extension 2</li>
+          <li>Extension 3</li>
+          <li>Extension 4</li>
+          <li>Facilities</li>
+        </ul>
+      </div>
+    </td>
+    <% @hotels.each do |hotel| %>
+      <td>
+        <ul>
+          <li><img src="/assets/<%= hotel.image_name %>"></li>
+          <li><%= hotel.name %></li>
+          <li><%= hotel.entrance %></li>
+          <li><%= hotel.land %></li>
+          <li><%= hotel.main_building %></li>
+          <li><%= hotel.extension1 %></li>
+          <li><%= hotel.extension2 %></li>
+          <li><%= hotel.extension3 %></li>
+          <li><%= hotel.extension4 %></li>
+          <li><%= hotel.facilities%></li>
+        </ul>
+      </td>
+    <% end %>
+  </tr>
+</table>
